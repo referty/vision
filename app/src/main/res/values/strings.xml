@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">MiMinor</string>
+
+    <!-- Main Screen -->
+    <string name="btn_take_photo">Сделать фото</string>
+    <string name="btn_from_gallery">Из галереи</string>
+    <string name="btn_analyze">Анализировать</string>
+    <string name="btn_clear">Очистить</string>
+    <string name="tap_object_hint">Коснитесь объекта на изображении</string>
+    <string name="no_image">Нет изображения</string>
+    <string name="analyzing">Анализ изображения…</string>
+
+    <!-- Color Info Dialog -->
+    <string name="color_info_title">Информация о цвете</string>
+    <string name="color_name_label">Название:</string>
+    <string name="hex_code_label">HEX код:</string>
+    <string name="rgb_code_label">RGB код:</string>
+    <string name="contrast_label">Контрастность:</string>
+    <string name="btn_speak_color">Озвучить</string>
+    <string name="btn_close">Закрыть</string>
+
+    <!-- Permissions -->
+    <string name="permission_camera_rationale">Для съемки нужен доступ к камере</string>
+    <string name="permission_storage_rationale">Для загрузки фото нужен доступ к галерее</string>
+    <string name="permission_denied">Разрешение отклонено</string>
+
+    <!-- Errors -->
+    <string name="error_loading_image">Ошибка загрузки изображения</string>
+    <string name="error_segmentation_failed">Ошибка сегментации</string>
+    <string name="error_camera_unavailable">Камера недоступна</string>
+    <string name="error_tts_unavailable">Text-to-Speech недоступен</string>
+
+    <!-- Settings -->
+    <string name="settings">Настройки</string>
+    <string name="colorblind_mode">Режим для дальтонизма</string>
+    <string name="normal_vision">Обычное зрение</string>
+
+    <!-- Menu -->
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_help">Помощь</string>
+</resources>
