@@ -30,6 +30,7 @@ import com.example.miminor.segmentation.SlicSegmenter;
 import com.example.miminor.segmentation.ContourSegmenter;
 import com.example.miminor.segmentation.ImageSegment;
 import com.example.miminor.segmentation.SegmentationResult;
+import com.example.miminor.utils.ColorInfo;
 import com.example.miminor.utils.PreferencesHelper;
 import com.example.miminor.views.SegmentOverlayView;
 import com.google.android.material.button.MaterialButton;
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
         overlayView.setOnSegmentClickListener((segment, x, y) -> {
             if (segment != null) {
-                showColorInfo(segment);
+                showColorInfo(segment, segment.getDominantColor());
             }
         });
     }
@@ -373,8 +374,13 @@ public class MainActivity extends AppCompatActivity {
 
                     statusText.setText(String.format("Объект выделен (%.2f сек)", time / 1000.0));
                     statusText.setVisibility(View.VISIBLE);
-                    
-                    showColorInfo(segment);
+
+
+                    String colorName = com.example.miminor.utils.ColorNameMapper.getColorName(targetColor);
+                    com.example.miminor.utils.ColorInfo newTargetColor =
+                            new com.example.miminor.utils.ColorInfo(targetColor, colorName);
+
+                    showColorInfo(segment, newTargetColor);
                 } else {
                     Toast.makeText(this, "Не удалось выделить объект", Toast.LENGTH_SHORT).show();
                 }
@@ -383,13 +389,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void showColorInfo(ImageSegment segment) {
+    private void showColorInfo(ImageSegment segment, ColorInfo Color) {
         if (segment == null || segment.getDominantColor() == null) {
             return;
         }
 
         Log.d(TAG, "Showing color info for segment: " + segment.getId());
-        ColorInfoDialog dialog = new ColorInfoDialog(this, segment.getDominantColor());
+        ColorInfoDialog dialog = new ColorInfoDialog(this, Color);
         dialog.show();
     }
 
